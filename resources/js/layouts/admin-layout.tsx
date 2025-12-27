@@ -1,4 +1,5 @@
 import { Head, Link, usePage } from "@inertiajs/react"
+import AppLogoIcon from "@/components/app-logo-icon"
 import {
     Bell,
     Cake as Cupcake,
@@ -64,8 +65,8 @@ export default function AdminLayout({ children, title = "Admin Panel" }: AdminLa
                 <div className="p-6 h-full flex flex-col">
                     <div className="flex items-center justify-between gap-3 mb-8">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-brand-pink rounded-full flex items-center justify-center">
-                                <Cupcake className="w-6 h-6 text-white" />
+                            <div className="flex items-center justify-center">
+                                <AppLogoIcon className="w-10 h-10" />
                             </div>
                             <div>
                                 <h2 className="font-bold text-text-brown text-lg">My Boo</h2>

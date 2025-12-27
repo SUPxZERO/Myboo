@@ -1,5 +1,6 @@
 import { JellyButton } from "@/components/ui/jelly-button"
 import { Head, Link, usePage } from "@inertiajs/react"
+import AppLogoIcon from "@/components/app-logo-icon"
 import { Sparkles } from "lucide-react"
 import { type SharedData } from "@/types"
 
@@ -19,7 +20,7 @@ export default function Welcome() {
             {/* Header */}
             <header className="relative z-10 w-full max-w-md mx-auto p-6 flex justify-between items-center">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm animate-bounce-in">
-                    <span className="text-2xl">🧁</span>
+                    <AppLogoIcon className="w-8 h-8" />
                 </div>
                 <nav className="flex items-center gap-4">
                     {auth.user ? (
@@ -46,7 +47,7 @@ export default function Welcome() {
                 <div className="mb-8 relative">
                     <div className="absolute inset-0 bg-rose-300 rounded-full blur-2xl opacity-20 animate-pulse-glow"></div>
                     <img
-                        src="/images/515058467-122138143442704889-4596321856528922397-n.jpg"
+                        src="/images/logo.png"
                         alt="My Boo Logo"
                         className="relative w-48 h-48 rounded-full shadow-xl border-4 border-white animate-float object-cover"
                     />
