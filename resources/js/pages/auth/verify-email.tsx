@@ -3,11 +3,17 @@ import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/auth-layout';
-import { logout } from '@/routes';
-import { send } from '@/routes/verification';
-import { Form, Head } from '@inertiajs/react';
+import { Head, Link, useForm } from '@inertiajs/react'; // ensure Link and useForm are used
+import { FormEventHandler } from 'react';
 
 export default function VerifyEmail({ status }: { status?: string }) {
+    const { post, processing } = useForm({});
+
+    const submit: FormEventHandler = (e) => {
+        e.preventDefault();
+        post('/email/verification-notification');
+    };
+
     return (
         <AuthLayout
             title="Verify email"
@@ -22,23 +28,21 @@ export default function VerifyEmail({ status }: { status?: string }) {
                 </div>
             )}
 
-            <Form {...send.form()} className="space-y-6 text-center">
-                {({ processing }) => (
-                    <>
-                        <Button disabled={processing} variant="secondary">
-                            {processing && <Spinner />}
-                            Resend verification email
-                        </Button>
+            <form onSubmit={submit} className="space-y-6 text-center">
+                <Button disabled={processing} variant="secondary">
+                    {processing && <Spinner />}
+                    Resend verification email
+                </Button>
 
-                        <TextLink
-                            href={logout()}
-                            className="mx-auto block text-sm"
-                        >
-                            Log out
-                        </TextLink>
-                    </>
-                )}
-            </Form>
+                <Link
+                    href="/logout"
+                    method="post"
+                    as="button"
+                    className="mx-auto block text-sm text-brand-pink hover:underline"
+                >
+                    Log out
+                </Link>
+            </form>
         </AuthLayout>
     );
 }
