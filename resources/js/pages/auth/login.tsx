@@ -6,9 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
 import AuthLayout from '@/layouts/auth-layout';
-import { register } from '@/routes';
-import { request } from '@/routes/password';
-import { Head, useForm } from '@inertiajs/react'; // ensure useForm is used
+import { Head, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
 
 interface LoginProps {
@@ -105,7 +103,7 @@ export default function Login({
                             <Label htmlFor="password">Password</Label>
                             {canResetPassword && (
                                 <TextLink
-                                    href={request()}
+                                    href={'/forgot-password'}
                                     className="ml-auto text-sm"
                                     tabIndex={5}
                                 >
@@ -153,7 +151,7 @@ export default function Login({
                 {canRegister && (
                     <div className="text-center text-sm text-muted-foreground">
                         Don't have an account?{' '}
-                        <TextLink href={register()} tabIndex={5} className="text-brand-pink hover:text-rose-dark hover:underline">
+                        <TextLink href={'/register'} tabIndex={5} className="text-brand-pink hover:text-rose-dark hover:underline">
                             Sign up
                         </TextLink>
                     </div>
