@@ -38,7 +38,7 @@ export function BottomNav() {
                                 key={item.id}
                                 href={item.path}
                                 className={cn(
-                                    "flex flex-col items-center gap-1 transition-all duration-200 px-4 py-2 rounded-2xl",
+                                    "flex flex-col items-center gap-1 transition-all duration-200 px-2 sm:px-4 py-2 rounded-2xl",
                                     isActive
                                         ? "bg-brand-pink/15"
                                         : "hover:bg-brand-pink/5",

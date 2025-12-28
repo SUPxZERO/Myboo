@@ -82,7 +82,7 @@ export default function ProfilePage() {
                 {/* Profile Card */}
                 <SoftCard>
                     <div className="flex items-center gap-4 p-6">
-                        <div className="relative w-20 h-20 rounded-full overflow-hidden bg-linear-to-br from-brand-pink/40 to-accent-yellow/40 flex items-center justify-center border-2 border-brand-pink/30 shadow-lg animate-bounce-in">
+                        <div className="relative w-20 h-20 shrink-0 rounded-full overflow-hidden bg-linear-to-br from-brand-pink/40 to-accent-yellow/40 flex items-center justify-center border-2 border-brand-pink/30 shadow-lg animate-bounce-in">
                             <span className="text-4xl animate-heart-beat">🍰</span>
                         </div>
                         <div className="flex-1">
@@ -134,7 +134,7 @@ export default function ProfilePage() {
                             My Favorites
                         </h3>
                     </div>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                         {favorites.map((item) => (
                             <Link
                                 key={item.id}
@@ -146,14 +146,14 @@ export default function ProfilePage() {
                                     <div className="relative aspect-square rounded-2xl overflow-hidden mb-2 border border-brand-pink/20">
                                         <img src={item.image || "/placeholder.svg"} alt={item.name} className="object-cover w-full h-full" />
                                         <button
-                                            className="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-125 hover:rotate-180 transition-all duration-300 border border-brand-pink/20 cursor-pointer"
+                                            className="absolute top-2 right-2 w-10 h-10 sm:w-8 sm:h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-125 hover:rotate-180 transition-all duration-300 border border-brand-pink/20 cursor-pointer"
                                             onClick={(e) => {
                                                 e.preventDefault()
                                                 e.stopPropagation()
                                                 setFavorites(favorites.filter((f) => f.id !== item.id))
                                             }}
                                         >
-                                            <Heart className="w-4 h-4 text-brand-pink fill-brand-pink" />
+                                            <Heart className="w-5 h-5 sm:w-4 sm:h-4 text-brand-pink fill-brand-pink" />
                                         </button>
                                     </div>
                                     <div className="px-2 pb-2">
