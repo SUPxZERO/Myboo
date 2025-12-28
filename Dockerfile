@@ -54,6 +54,9 @@ RUN php artisan config:clear
 RUN php artisan route:clear
 RUN php artisan view:clear
 
+# Create temporary SQLite database
+RUN touch /tmp/database.sqlite && chown www-data:www-data /tmp/database.sqlite && chmod 664 /tmp/database.sqlite
+
 # Expose port 80
 EXPOSE 80
 

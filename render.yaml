@@ -27,7 +27,7 @@ services:
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
-        value: ":memory:"
+        value: "/tmp/database.sqlite"
       - key: SESSION_DRIVER
         value: cookie
       - key: CACHE_DRIVER
